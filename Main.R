@@ -7,10 +7,14 @@ sample (datasource)
 sampling_interval = 2
 poblation = nrow(datasource)
 
+# Funcion para obtener indices de valores de manera sistematica
 systematic.sample = function(N,n){
-  k = ceiling(N/n)
-  r = sample(1:k, 1)
-  sys.samp = seq(r, r + k*(n-1), k)
+  k = ceiling(N/n) # intervalo para tomar valores
+
+  r = sample(1:k, 1) # conteo para hacer el "slide"
+
+  sys.samp = seq(r, r + k*(n-1), k) # obtencion de indice de muestras
+
   cat("The selected systematic sample is: \"", sys.samp, "\"\n")
 }
 
