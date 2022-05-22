@@ -1,6 +1,7 @@
 library("readxl")
+library(survey)
 
-datos <- read_excel('./DB nacimientos 2020.xlsx')
+datos = read_excel('./DB nacimientos 2020.xlsx')
 
 # --------------------------------------- muestra sistematica --------------------------------------------------------
 poblacion <- nrow(datos)
@@ -17,6 +18,10 @@ systematic.sample <- function(N,n){
 
 # Tomando de 10 en 10 se obtienen 8,315 ; cumpliendo el 10% aprox solicitado
 muestra_sistematica <- datos[systematic.sample(poblacion,n_muestra),]
+
+# --------------------------------------- factor expansion --------------------------------------------------------
+disenio_muestral <- svydesign(weights = ~fex,data=datos)
+# --------------------------------------- factor expansion --------------------------------------------------------
 
 # --------------------------------------- muestra sistematica --------------------------------------------------------
 
