@@ -20,7 +20,7 @@ systematic.sample <- function(N,n){
 muestra_sistematica <- datos[systematic.sample(poblacion,n_muestra),]
 
 # --------------------------------------- factor expansion --------------------------------------------------------
-disenio_muestral <- svydesign(weights = ~fex,data=datos)
+disenio_muestral <- svydesign(ids=~id,weights = ~fex,data=datos)
 # --------------------------------------- factor expansion --------------------------------------------------------
 
 # --------------------------------------- muestra sistematica --------------------------------------------------------
