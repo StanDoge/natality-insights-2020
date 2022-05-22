@@ -39,3 +39,4 @@ vignettes/*.pdf
 .Renviron
 
 # Others
+.idea/
