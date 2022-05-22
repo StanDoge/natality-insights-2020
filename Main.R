@@ -29,34 +29,6 @@ x <- seq(min(DB_nacimientos_2020$semana_gestacion), max(DB_nacimientos_2020$sema
 f <- dnorm(x, mean = mean(DB_nacimientos_2020$semana_gestacion), sd = sd(DB_nacimientos_2020$semana_gestacion))
 lines(x, f, col = "red", lwd = 2)
 
-#-------------------------------------------------------
-#Medidas de posición      peso_nac
-#1 Qu. media 3Qu. Mediana 
-summary(DB_nacimientos_2020$peso_nac)
-#moda
-frecuencias <- data.frame(table(DB_nacimientos_2020$peso_nac))
-moda <- frecuencias[which.max(frecuencias$Freq),1]
-paste("La moda de la variable peso es", moda)
-
-####longitud nac #### variable no encontrada
-
-#Medidas de posición    madre_edad
-#1 Qu. media 3Qu. Mediana 
-summary(DB_nacimientos_2020$madre_edad)
-#moda
-frecuencias <- data.frame(table(DB_nacimientos_2020$madre_edad))
-moda <- frecuencias[which.max(frecuencias$Freq),1]
-paste("La moda de la variable edad de madre  es", moda)
-
-#Medidas de posición    semanas_gestacion
-#1 Qu. media 3Qu. Mediana 
-summary(DB_nacimientos_2020$semana_gestacion)
-#moda
-frecuencias <- data.frame(table(DB_nacimientos_2020$semana_gestacion))
-moda <- frecuencias[which.max(frecuencias$Freq),1]
-paste("La moda de la variable semanas de gestación  es", moda)
-#-------------------------------------------------------
-
 
 
 
