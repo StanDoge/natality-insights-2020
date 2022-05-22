@@ -1,8 +1,8 @@
 library("readxl")
 
 datos <- read_excel('./DB nacimientos 2020.xlsx')
-sample (datos)
 
+# --------------------------------------- muestra sistematica --------------------------------------------------------
 poblacion <- nrow(datos)
 n_muestra <- 8315
 
@@ -18,15 +18,32 @@ systematic.sample <- function(N,n){
 # Tomando de 10 en 10 se obtienen 8,315 ; cumpliendo el 10% aprox solicitado
 muestra_sistematica <- datos[systematic.sample(poblacion,n_muestra),]
 
-#Para mostrar ciertos histogramas
-hist(DB_nacimientos_2020$semana_gestacion)
+# --------------------------------------- muestra sistematica --------------------------------------------------------
 
-hist(DB_nacimientos_2020$semana_gestacion, main = "Histograma de las semanas de gestación", xlab="Semanas", ylab ="Frecuencia", freq=F)
 
-x <- seq(min(DB_nacimientos_2020$semana_gestacion), max(DB_nacimientos_2020$semana_gestacion), length = length(DB_nacimientos_2020$semana_gestacion))
+# --------------------------------------- medidas tendencia central --------------------------------------------------
 
-f <- dnorm(x, mean <- mean(DB_nacimientos_2020$semana_gestacion), sd = sd(DB_nacimientos_2020$semana_gestacion))
+# Medidas de tendencia central
+
+# Para mostrar ciertos histogramas
+hist(muestra_sistematica$semana_gestacion)
+
+hist(muestra_sistematica$semana_gestacion, main = "Histograma de las semanas de gestación", xlab="Semanas",
+     ylab ="Frecuencia", freq=F)
+
+x <- seq(min(muestra_sistematica$semana_gestacion), max(muestra_sistematica$semana_gestacion),
+         length = length(muestra_sistematica$semana_gestacion))
+
+f <- dnorm(x, mean <- mean(muestra_sistematica$semana_gestacion), sd = sd(muestra_sistematica$semana_gestacion))
 lines(x, f, col <- "red", lwd = 2)
 
+# --------------------------------------- medidas tendencia central --------------------------------------------------
 
+
+# --------------------------------------- medidas dispersion ---------------------------------------------------------
+# --------------------------------------- medidas dispersion ---------------------------------------------------------
+
+
+# --------------------------------------- graficas --------------------------------------------------------------------
+# --------------------------------------- graficas---------------------------------------------------------------------
 
