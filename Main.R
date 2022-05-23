@@ -1,4 +1,5 @@
 library("readxl")
+library(moments)
 
 datos = read_excel('./DB nacimientos 2020.xlsx')
 
@@ -47,18 +48,23 @@ paste("La moda de la variable semanas de gestación  es", moda)
 # --------------------------------------- medidas tendencia central --------------------------------------------------
 
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
-
+# -- varianza
 var_peso <- var(muestra_sistematica$peso_nac)
 var_edad <- var(muestra_sistematica$madre_edad)
 var_gestacion <- var(muestra_sistematica$semana_gestacion)
 
+# -- desviacion estandar
 std_peso <- sqrt(var_peso)
 std_edad <- sqrt(var_edad)
 std_gestacion <- sqrt(var_gestacion)
 
-#Coeficiente de variación
+# -- coeficiente de variación
 CV<-function(x){sd(muestra_sistematica$semana_gestacion)*100/mean(muestra_sistematica$semana_gestacion)}
 CV(x)
+
+# -- curtosis
+
+# -- asimetria
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
 
 # --------------------------------------- graficas --------------------------------------------------------------------
