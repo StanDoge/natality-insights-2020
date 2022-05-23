@@ -16,7 +16,6 @@ muestra.sistematica <- function(N,n){
   sys.samp <- seq(r, r + k*(n-1), k) # obtencion de indice de muestras
 }
 
-# Tomando de 10 en 10 se obtienen 8,315 ; cumpliendo el 10% aprox solicitado
 muestra_sistematica <- datos[muestra.sistematica(poblacion,n_muestra),]
 
 # --------------------------------------- muestra sistematica --------------------------------------------------------
@@ -61,6 +60,7 @@ std_edad <- sqrt(var_edad)
 std_gestacion <- sqrt(var_gestacion)
 
 desviacion <- c(std_peso,std_edad,std_gestacion)
+
 # -- coeficiente de variación
 CV<-function(x){sd(muestra_sistematica$semana_gestacion)*100/mean(muestra_sistematica$semana_gestacion)}
 CV(x)
@@ -69,7 +69,6 @@ CV(x)
 sk_peso <- skewness(muestra_sistematica$peso_nac)
 sk_edad <-  skewness(muestra_sistematica$madre_edad)
 sk_gestacion <- skewness(muestra_sistematica$semana_gestacion)
-
 
 asimetria <- c(sk_peso,sk_edad,sk_gestacion)
 
@@ -80,9 +79,15 @@ ku_gestacion <- kurtosis(muestra_sistematica$semana_gestacion)
 
 curtosis <- c(ku_peso,ku_edad,ku_gestacion)
 
+# -- rango
+ra_peso <- max(muestra_sistematica$peso_nac) - min(muestra_sistematica$peso_nac)
+ra_edad <- max(muestra_sistematica$madre_edad) - min(muestra_sistematica$madre_edad)
+ra_gestacion <- max(muestra_sistematica$semana_gestacion) - min(muestra_sistematica$semana_gestacion)
+
+rangos <- c(ra_peso,ra_edad,ra_gestacion)
+
 # -- valores de dispersion
-valores_dispersion <- data.frame( varianza,desviacion,asimetria,curtosis,row.names = c("peso","edad","gestacion"))
-valores_dispersion
+valores_dispersion <- data.frame( varianza,desviacion,asimetria,curtosis,rangos,row.names = c("peso","edad","gestacion"))
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
 
 # --------------------------------------- graficas --------------------------------------------------------------------
