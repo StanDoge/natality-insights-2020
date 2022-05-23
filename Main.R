@@ -16,19 +16,6 @@ systematic.sample = function(N,n){
   sys.samp = seq(r, r + k*(n-1), k) # obtencion de indice de muestras
 }
 
-# Tomando de 10 en 10 se obtienen 8,315 ; cumpliendo el 10% aprox solicitado
-systematic_sample = datasource[systematic.sample(poblation,sample_size),]
-
-#Para mostrar ciertos histogramas
-hist(DB_nacimientos_2020$semana_gestacion)
-
-hist(DB_nacimientos_2020$semana_gestacion, main="Histograma de las semanas de gestación", xlab="Semanas", ylab ="Frecuencia", freq=F)
-
-x <- seq(min(DB_nacimientos_2020$semana_gestacion), max(DB_nacimientos_2020$semana_gestacion), length = length(DB_nacimientos_2020$semana_gestacion))
-
-f <- dnorm(x, mean = mean(DB_nacimientos_2020$semana_gestacion), sd = sd(DB_nacimientos_2020$semana_gestacion))
-lines(x, f, col = "red", lwd = 2)
-
 
 
 
