@@ -60,7 +60,23 @@ std_edad <- sqrt(var_edad)
 std_gestacion <- sqrt(var_gestacion)
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
 
+#Medidas de dispersión
 
+#Varianza
+var(DB_nacimientos_2020$semana_gestacion)
+#Min - Max
+min(DB_nacimientos_2020$semana_gestacion)
+max(DB_nacimientos_2020$semana_gestacion)
+# desviacion estandar
+sd(DB_nacimientos_2020$semana_gestacion)
+
+#Coeficiente de variación
+CV<-function(x){sd(DB_nacimientos_2020$semana_gestacion)*100/mean(DB_nacimientos_2020$semana_gestacion)}
+CV(x)
+# Asimetría = Simetría con respecto a su media
+
+# Curtosis(Apuntamiento)= Mide cómo de achatada o apuntada es la curva
+# y cómo se agrupan valores en torno a la media
 # --------------------------------------- graficas --------------------------------------------------------------------
 hist(muestra_sistematica$semana_gestacion)
 
