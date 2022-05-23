@@ -46,6 +46,7 @@ frecuencias <- data.frame(table(DB_nacimientos_2020$semana_gestacion))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
 paste("La moda de la variable semanas de gestación  es", moda)
 
+
 # --------------------------------------- medidas tendencia central --------------------------------------------------
 
 
