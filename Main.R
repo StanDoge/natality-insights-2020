@@ -22,19 +22,29 @@ muestra_sistematica <- datos[muestra.sistematica(poblacion,n_muestra),]
 
 
 # --------------------------------------- medidas tendencia central --------------------------------------------------
+#Medidas de posición      peso_nac
+#1 Qu. media 3Qu. Mediana 
+summary(DB_nacimientos_2020$peso_nac )
+#moda
+frecuencias <- data.frame(table(DB_nacimientos_2020$peso_nac))
+moda <- frecuencias[which.max(frecuencias$Freq),1]
+paste("La moda de la variable peso es", moda)
 
-# hist(muestra_sistematica$semana_gestacion)
+#Medidas de posición    madre_edad
+#1 Qu. media 3Qu. Mediana 
+summary(DB_nacimientos_2020$madre_edad)
+#moda
+frecuencias <- data.frame(table(DB_nacimientos_2020$madre_edad))
+moda <- frecuencias[which.max(frecuencias$Freq),1]
+paste("La moda de la variable edad de madre  es", moda)
 
-# hist(muestra_sistematica$semana_gestacion, main="Histograma de las semanas de gestacion", xlab="Semanas",
-     # ylab ="Frecuencia", freq=F)
-
-# todo: Dar nombres mas descriptivos para que todos entendamos cual es su finalidad
-x <- seq(min(muestra_sistematica$semana_gestacion), max(muestra_sistematica$semana_gestacion),
-         length = length(muestra_sistematica$semana_gestacion))
-
-f <- dnorm(x, mean <- mean(muestra_sistematica$semana_gestacion), sd = sd(muestra_sistematica$semana_gestacion))
-lines(x, f, col <- "red", lwd = 2)
-
+#Medidas de posición    semanas_gestacion
+#1 Qu. media 3Qu. Mediana 
+summary(DB_nacimientos_2020$semana_gestacion)
+#moda
+frecuencias <- data.frame(table(DB_nacimientos_2020$semana_gestacion))
+moda <- frecuencias[which.max(frecuencias$Freq),1]
+paste("La moda de la variable semanas de gestación  es", moda)
 # --------------------------------------- medidas tendencia central --------------------------------------------------
 
 
@@ -52,5 +62,19 @@ std_gestacion <- sqrt(var_gestacion)
 
 
 # --------------------------------------- graficas --------------------------------------------------------------------
+hist(muestra_sistematica$semana_gestacion)
+
+# hist(muestra_sistematica$semana_gestacion)
+
+
+# hist(muestra_sistematica$semana_gestacion, main="Histograma de las semanas de gestacion", xlab="Semanas",
+     # ylab ="Frecuencia", freq=F)
+
+# todo: Dar nombres mas descriptivos para que todos entendamos cual es su finalidad
+x <- seq(min(muestra_sistematica$semana_gestacion), max(muestra_sistematica$semana_gestacion),
+         length = length(muestra_sistematica$semana_gestacion))
+
+f <- dnorm(x, mean <- mean(muestra_sistematica$semana_gestacion), sd = sd(muestra_sistematica$semana_gestacion))
+lines(x, f, col <- "red", lwd = 2)
 # --------------------------------------- graficas---------------------------------------------------------------------
 
