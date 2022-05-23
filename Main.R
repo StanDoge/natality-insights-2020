@@ -63,8 +63,15 @@ CV<-function(x){sd(muestra_sistematica$semana_gestacion)*100/mean(muestra_sistem
 CV(x)
 
 # -- curtosis
+ku_peso <- skewness(muestra_sistematica$peso_nac)
+ku_edad <-  skewness(muestra_sistematica$madre_edad)
+ku_gestacion <- skewness(muestra_sistematica$semana_gestacion)
 
 # -- asimetria
+sk_peso <- 
+sk_edad
+sk_gestacion
+
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
 
 # --------------------------------------- graficas --------------------------------------------------------------------
@@ -77,6 +84,6 @@ hist(muestra_sistematica$semana_gestacion)
 x <- seq(min(muestra_sistematica$semana_gestacion), max(muestra_sistematica$semana_gestacion),
          length = length(muestra_sistematica$semana_gestacion))
 
-f <- dnorm(x, mean <- mean(muestra_sistematica$semana_gestacion), sd = sd(muestra_sistematica$semana_gestacion))
-lines(x, f, col <- "red", lwd = 2)
+f <- dnorm(x, mean = mean(muestra_sistematica$semana_gestacion), sd = sd(muestra_sistematica$semana_gestacion))
+lines(x, f, col = "red", lwd = 2)
 # --------------------------------------- medidas tendencia central --------------------------------------------------
