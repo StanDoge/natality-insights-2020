@@ -39,7 +39,7 @@ lines(x, f, col <- "red", lwd = 2)
 
 
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
-variables_estudio <- list(muestra_sistematica$peso_nac,muestra_sistematica$madre_edad,muestra_sistematica$semana_gestacion)
+# variables_estudio <- list(muestra_sistematica$peso_nac,muestra_sistematica$madre_edad,muestra_sistematica$semana_gestacion)
 
 var_peso <- var(muestra_sistematica$peso_nac)
 var_edad <- var(muestra_sistematica$madre_edad)
