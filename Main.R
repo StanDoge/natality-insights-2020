@@ -23,11 +23,10 @@ muestra_sistematica <- datos[muestra.sistematica(poblacion,n_muestra),]
 
 # --------------------------------------- medidas tendencia central --------------------------------------------------
 
-# Para mostrar ciertos histogramas
-# hist(muestra_sistematica$semana_gestacion)
+hist(muestra_sistematica$semana_gestacion)
 
-# hist(muestra_sistematica$semana_gestacion, main="Histograma de las semanas de gestacion", xlab="Semanas",
-#      ylab ="Frecuencia", freq=F)
+hist(muestra_sistematica$semana_gestacion, main="Histograma de las semanas de gestacion", xlab="Semanas",
+     ylab ="Frecuencia", freq=F)
 
 x <- seq(min(muestra_sistematica$semana_gestacion), max(muestra_sistematica$semana_gestacion),
          length = length(muestra_sistematica$semana_gestacion))
