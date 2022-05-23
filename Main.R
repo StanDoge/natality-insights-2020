@@ -21,6 +21,9 @@ muestra_sistematica <- datos[muestra.sistematica(poblacion,n_muestra),]
 # --------------------------------------- muestra sistematica --------------------------------------------------------
 
 
+
+
+
 # --------------------------------------- medidas tendencia central --------------------------------------------------
 
 # hist(muestra_sistematica$semana_gestacion)
@@ -52,5 +55,7 @@ std_gestacion <- sqrt(var_gestacion)
 
 
 # --------------------------------------- graficas --------------------------------------------------------------------
+hist(DB_nacimientos_2020$semana_gestacion)
+
 # --------------------------------------- graficas---------------------------------------------------------------------
 
