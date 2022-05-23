@@ -24,25 +24,25 @@ muestra_sistematica <- datos[muestra.sistematica(poblacion,n_muestra),]
 # --------------------------------------- medidas tendencia central --------------------------------------------------
 #Medidas de posición      peso_nac
 #1 Qu. media 3Qu. Mediana 
-summary(DB_nacimientos_2020$peso_nac )
+summary(muestra_sistematica$peso_nac )
 #moda
-frecuencias <- data.frame(table(DB_nacimientos_2020$peso_nac))
+frecuencias <- data.frame(table(muestra_sistematica$peso_nac))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
 paste("La moda de la variable peso es", moda)
 
 #Medidas de posición    madre_edad
 #1 Qu. media 3Qu. Mediana 
-summary(DB_nacimientos_2020$madre_edad)
+summary(muestra_sistematica$madre_edad)
 #moda
-frecuencias <- data.frame(table(DB_nacimientos_2020$madre_edad))
+frecuencias <- data.frame(table(muestra_sistematica$madre_edad))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
 paste("La moda de la variable edad de madre  es", moda)
 
 #Medidas de posición    semanas_gestacion
 #1 Qu. media 3Qu. Mediana 
-summary(DB_nacimientos_2020$semana_gestacion)
+summary(muestra_sistematica$semana_gestacion)
 #moda
-frecuencias <- data.frame(table(DB_nacimientos_2020$semana_gestacion))
+frecuencias <- data.frame(table(muestra_sistematica$semana_gestacion))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
 paste("La moda de la variable semanas de gestación  es", moda)
 # --------------------------------------- medidas tendencia central --------------------------------------------------
@@ -58,7 +58,14 @@ var_gestacion <- var(muestra_sistematica$semana_gestacion)
 std_peso <- sqrt(var_peso)
 std_edad <- sqrt(var_edad)
 std_gestacion <- sqrt(var_gestacion)
+
+#Coeficiente de variación
+CV<-function(x){sd(muestra_sistematica$semana_gestacion)*100/mean(muestra_sistematica$semana_gestacion)}
+CV(x)
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
+
+
+
 
 
 # --------------------------------------- graficas --------------------------------------------------------------------
