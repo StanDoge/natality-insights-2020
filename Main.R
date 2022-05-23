@@ -1,5 +1,4 @@
 library("readxl")
-library(survey)
 
 datos = read_excel('./DB nacimientos 2020.xlsx')
 
@@ -8,7 +7,7 @@ poblacion <- nrow(datos)
 n_muestra <- 8315
 
 # Funcion para obtener indices de valores de manera sistematica
-systematic.sample <- function(N,n){
+muestra.sistematica <- function(N,n){
   k <- ceiling(N/n) # intervalo para tomar valores
 
   r <- sample(1:k, 1) # conteo para hacer el "slide"
@@ -17,24 +16,18 @@ systematic.sample <- function(N,n){
 }
 
 # Tomando de 10 en 10 se obtienen 8,315 ; cumpliendo el 10% aprox solicitado
-muestra_sistematica <- datos[systematic.sample(poblacion,n_muestra),]
-
-# --------------------------------------- factor expansion --------------------------------------------------------
-disenio_muestral <- svydesign(ids=~id,weights = ~fex,data=datos)
-# --------------------------------------- factor expansion --------------------------------------------------------
+muestra_sistematica <- datos[muestra.sistematica(poblacion,n_muestra),]
 
 # --------------------------------------- muestra sistematica --------------------------------------------------------
 
 
 # --------------------------------------- medidas tendencia central --------------------------------------------------
 
-# Medidas de tendencia central
-
 # Para mostrar ciertos histogramas
-hist(muestra_sistematica$semana_gestacion)
+# hist(muestra_sistematica$semana_gestacion)
 
-hist(muestra_sistematica$semana_gestacion, main="Histograma de las semanas de gestacion", xlab="Semanas",
-     ylab ="Frecuencia", freq=F)
+# hist(muestra_sistematica$semana_gestacion, main="Histograma de las semanas de gestacion", xlab="Semanas",
+#      ylab ="Frecuencia", freq=F)
 
 x <- seq(min(muestra_sistematica$semana_gestacion), max(muestra_sistematica$semana_gestacion),
          length = length(muestra_sistematica$semana_gestacion))
