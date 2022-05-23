@@ -33,10 +33,6 @@ frecuencias <- data.frame(table(muestra_sistematica$peso_nac))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
 paste("La moda de la variable peso es", moda)
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 4fbd89504aff78725024dcfb60d77fb14bfcf8cb
 #Medidas de posición    madre_edad
 #1 Qu. media 3Qu. Mediana 
 summary(muestra_sistematica$madre_edad)
@@ -104,9 +100,6 @@ CV(x)
 
 
 # --------------------------------------- graficas --------------------------------------------------------------------
-<<<<<<< HEAD
-hist(muestra_sistematica$semana_gestacion)
-
 # hist(muestra_sistematica$semana_gestacion)
 
 
@@ -123,6 +116,5 @@ lines(x, f, col <- "red", lwd = 2)
 hist(DB_nacimientos_2020$semana_gestacion)
 
 
->>>>>>> 4fbd89504aff78725024dcfb60d77fb14bfcf8cb
 # --------------------------------------- graficas---------------------------------------------------------------------
 
