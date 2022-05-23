@@ -4,7 +4,7 @@ datos = read_excel('./DB nacimientos 2020.xlsx')
 
 # --------------------------------------- muestra sistematica --------------------------------------------------------
 poblacion <- nrow(datos)
-n_muestra <- 8315
+n_muestra <- poblacion * 0.1
 
 # Funcion para obtener indices de valores de manera sistematica
 muestra.sistematica <- function(N,n){
@@ -23,10 +23,10 @@ muestra_sistematica <- datos[muestra.sistematica(poblacion,n_muestra),]
 
 # --------------------------------------- medidas tendencia central --------------------------------------------------
 
-hist(muestra_sistematica$semana_gestacion)
+# hist(muestra_sistematica$semana_gestacion)
 
-hist(muestra_sistematica$semana_gestacion, main="Histograma de las semanas de gestacion", xlab="Semanas",
-     ylab ="Frecuencia", freq=F)
+# hist(muestra_sistematica$semana_gestacion, main="Histograma de las semanas de gestacion", xlab="Semanas",
+     # ylab ="Frecuencia", freq=F)
 
 # todo: Dar nombres mas descriptivos para que todos entendamos cual es su finalidad
 x <- seq(min(muestra_sistematica$semana_gestacion), max(muestra_sistematica$semana_gestacion),
@@ -39,6 +39,15 @@ lines(x, f, col <- "red", lwd = 2)
 
 
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
+variables_estudio <- list(muestra_sistematica$peso_nac,muestra_sistematica$madre_edad,muestra_sistematica$semana_gestacion)
+
+var_peso <- var(muestra_sistematica$peso_nac)
+var_edad <- var(muestra_sistematica$madre_edad)
+var_gestacion <- var(muestra_sistematica$semana_gestacion)
+
+std_peso <- sqrt(var_peso)
+std_edad <- sqrt(var_edad)
+std_gestacion <- sqrt(var_gestacion)
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
 
 
