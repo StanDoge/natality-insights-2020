@@ -53,11 +53,14 @@ var_peso <- var(muestra_sistematica$peso_nac)
 var_edad <- var(muestra_sistematica$madre_edad)
 var_gestacion <- var(muestra_sistematica$semana_gestacion)
 
+varianza <- c(var_peso,var_edad,var_gestacion)
+
 # -- desviacion estandar
 std_peso <- sqrt(var_peso)
 std_edad <- sqrt(var_edad)
 std_gestacion <- sqrt(var_gestacion)
 
+desviacion <- c(std_peso,std_edad,std_gestacion)
 # -- coeficiente de variación
 CV<-function(x){sd(muestra_sistematica$semana_gestacion)*100/mean(muestra_sistematica$semana_gestacion)}
 CV(x)
@@ -67,11 +70,19 @@ sk_peso <- skewness(muestra_sistematica$peso_nac)
 sk_edad <-  skewness(muestra_sistematica$madre_edad)
 sk_gestacion <- skewness(muestra_sistematica$semana_gestacion)
 
+
+asimetria <- c(sk_peso,sk_edad,sk_gestacion)
+
 # -- curtosis
 ku_peso <- kurtosis(muestra_sistematica$peso_nac)
 ku_edad <- kurtosis(muestra_sistematica$madre_edad)
 ku_gestacion <- kurtosis(muestra_sistematica$semana_gestacion)
 
+curtosis <- c(ku_peso,ku_edad,ku_gestacion)
+
+# -- valores de dispersion
+valores_dispersion <- data.frame( varianza,desviacion,asimetria,curtosis,row.names = c("peso","edad","gestacion"))
+valores_dispersion
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
 
 # --------------------------------------- graficas --------------------------------------------------------------------
