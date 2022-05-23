@@ -47,7 +47,6 @@ paste("La moda de la variable semanas de gestación  es", moda)
 # --------------------------------------- medidas tendencia central --------------------------------------------------
 
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
-# variables_estudio <- list(muestra_sistematica$peso_nac,muestra_sistematica$madre_edad,muestra_sistematica$semana_gestacion)
 
 var_peso <- var(muestra_sistematica$peso_nac)
 var_edad <- var(muestra_sistematica$madre_edad)
@@ -64,9 +63,6 @@ CV(x)
 
 # --------------------------------------- graficas --------------------------------------------------------------------
 hist(muestra_sistematica$semana_gestacion)
-
-# hist(muestra_sistematica$semana_gestacion)
-
 
 # hist(muestra_sistematica$semana_gestacion, main="Histograma de las semanas de gestacion", xlab="Semanas",
      # ylab ="Frecuencia", freq=F)
