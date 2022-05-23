@@ -62,15 +62,15 @@ std_gestacion <- sqrt(var_gestacion)
 CV<-function(x){sd(muestra_sistematica$semana_gestacion)*100/mean(muestra_sistematica$semana_gestacion)}
 CV(x)
 
-# -- curtosis
-ku_peso <- skewness(muestra_sistematica$peso_nac)
-ku_edad <-  skewness(muestra_sistematica$madre_edad)
-ku_gestacion <- skewness(muestra_sistematica$semana_gestacion)
-
 # -- asimetria
-sk_peso <- 
-sk_edad
-sk_gestacion
+sk_peso <- skewness(muestra_sistematica$peso_nac)
+sk_edad <-  skewness(muestra_sistematica$madre_edad)
+sk_gestacion <- skewness(muestra_sistematica$semana_gestacion)
+
+# -- curtosis
+ku_peso <- kurtosis(muestra_sistematica$peso_nac)
+ku_edad <- kurtosis(muestra_sistematica$madre_edad)
+ku_gestacion <- kurtosis(muestra_sistematica$semana_gestacion)
 
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
 
