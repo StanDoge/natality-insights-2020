@@ -50,11 +50,18 @@ paste("La moda de la variable semanas de gestación  es", moda)
 peso = muestra_sistematica$peso_nac
 edad = muestra_sistematica$madre_edad
 gestacion = muestra_sistematica$semana_gestacion
+valores_de_estudio = list(peso,edad,gestacion)
+
+loop <- function (lista,salida,funcion){
+  n = 1
+  for (i in lista){
+    salida[[n]] = funcion(i)
+    n = n + 1
+}}
 
 # -- varianza
 varianza = list()
 n = 1
-valores_de_estudio = list(peso,edad,gestacion)
 
 for (i in valores_de_estudio){
   varianza[[n]] = var(i)
@@ -96,7 +103,8 @@ ra_gestacion <- max(muestra_sistematica$semana_gestacion) - min(muestra_sistemat
 rangos <- c(ra_peso,ra_edad,ra_gestacion)
 
 # -- valores de dispersion
-valores_dispersion <- data.frame( unlist(varianza),unlist(desviacion),asimetria,curtosis,rangos,row.names = c("peso","edad","gestacion"))
+valores_dispersion <- data.frame( unlist(varianza),unlist(desviacion),asimetria,curtosis,rangos,
+                                  row.names = c("peso","edad","gestacion"))
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
 
 # --------------------------------------- graficas --------------------------------------------------------------------
