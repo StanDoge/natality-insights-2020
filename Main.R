@@ -47,19 +47,28 @@ paste("La moda de la variable semanas de gestación  es", moda)
 # --------------------------------------- medidas tendencia central --------------------------------------------------
 
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
-# -- varianza
-var_peso <- var(muestra_sistematica$peso_nac)
-var_edad <- var(muestra_sistematica$madre_edad)
-var_gestacion <- var(muestra_sistematica$semana_gestacion)
+peso = muestra_sistematica$peso_nac
+edad = muestra_sistematica$madre_edad
+gestacion = muestra_sistematica$semana_gestacion
 
-varianza <- c(var_peso,var_edad,var_gestacion)
+# -- varianza
+varianza = list()
+n = 1
+valores_de_estudio = list(peso,edad,gestacion)
+
+for (i in valores_de_estudio){
+  varianza[[n]] = var(i)
+  n = n + 1
+}
 
 # -- desviacion estandar
-std_peso <- sqrt(var_peso)
-std_edad <- sqrt(var_edad)
-std_gestacion <- sqrt(var_gestacion)
+desviacion = list()
+h = 1
 
-desviacion <- c(std_peso,std_edad,std_gestacion)
+for (i in varianza){
+  desviacion[[h]] = sqrt(i)
+  h = h + 1
+}
 
 # -- coeficiente de variación
 CV<-function(x){sd(muestra_sistematica$semana_gestacion)*100/mean(muestra_sistematica$semana_gestacion)}
@@ -87,7 +96,7 @@ ra_gestacion <- max(muestra_sistematica$semana_gestacion) - min(muestra_sistemat
 rangos <- c(ra_peso,ra_edad,ra_gestacion)
 
 # -- valores de dispersion
-valores_dispersion <- data.frame( varianza,desviacion,asimetria,curtosis,rangos,row.names = c("peso","edad","gestacion"))
+valores_dispersion <- data.frame( unlist(varianza),unlist(desviacion),asimetria,curtosis,rangos,row.names = c("peso","edad","gestacion"))
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
 
 # --------------------------------------- graficas --------------------------------------------------------------------
