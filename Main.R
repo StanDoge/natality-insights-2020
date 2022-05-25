@@ -50,6 +50,8 @@ paste("La moda de la variable semanas de gestación  es", moda)
 valores_de_estudio <- list(muestra_sistematica$peso_nac,muestra_sistematica$madre_edad,
                           muestra_sistematica$semana_gestacion,muestra_sistematica$talla_nac)
 
+# -- funcion loop; dado un arreglo y una aplica esa funcion a cada uno de los elementos del arreglo y devuelve uno
+#    nuevo con los elementos pasados por la funcion ~ simil a un forEach.
 loop <- function (lista,funcion){
   n = 1
   salida = list()
@@ -75,41 +77,36 @@ CV<-function(x){sd(muestra_sistematica$semana_gestacion)*100/mean(muestra_sistem
 CV(x)
 
 # -- asimetria
-sk_peso <- skewness(muestra_sistematica$peso_nac)
-sk_edad <-  skewness(muestra_sistematica$madre_edad)
-sk_gestacion <- skewness(muestra_sistematica$semana_gestacion)
-
-asimetria <- c(sk_peso,sk_edad,sk_gestacion)
+asimetria = list()
+asimetria = loop(valores_de_estudio,skewness)
 
 # -- curtosis
-ku_peso <- kurtosis(muestra_sistematica$peso_nac)
-ku_edad <- kurtosis(muestra_sistematica$madre_edad)
-ku_gestacion <- kurtosis(muestra_sistematica$semana_gestacion)
-
-curtosis <- c(ku_peso,ku_edad,ku_gestacion)
+curtosis = list()
+curtosis = loop(valores_de_estudio,kurtosis)
 
 # -- rango
 ra_peso <- max(muestra_sistematica$peso_nac) - min(muestra_sistematica$peso_nac)
 ra_edad <- max(muestra_sistematica$madre_edad) - min(muestra_sistematica$madre_edad)
 ra_gestacion <- max(muestra_sistematica$semana_gestacion) - min(muestra_sistematica$semana_gestacion)
+ra_talla <- max(muestra_sistematica$talla_nac) - min(muestra_sistematica$talla_nac)
 
-rangos <- c(ra_peso,ra_edad,ra_gestacion)
+rangos <- c(ra_peso,ra_edad,ra_gestacion,ra_talla)
 
-# -- valores de dispersion
-valores_dispersion <- data.frame( unlist(varianza),unlist(desviacion),asimetria,curtosis,rangos,
-                                  row.names = c("peso","edad","gestacion","talla"))
+# -- df de valores de dispersion
+valores_dispersion <- data.frame( unlist(varianza),unlist(desviacion),unlist(asimetria),unlist(curtosis),
+                                  rangos,row.names = c("peso","edad","gestacion","talla"))
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
 
 # --------------------------------------- graficas --------------------------------------------------------------------
-hist(muestra_sistematica$semana_gestacion)
+# hist(muestra_sistematica$semana_gestacion)
 
 # hist(muestra_sistematica$semana_gestacion, main="Histograma de las semanas de gestacion", xlab="Semanas",
      # ylab ="Frecuencia", freq=F)
 
 # todo: Dar nombres mas descriptivos para que todos entendamos cual es su finalidad
-x <- seq(min(muestra_sistematica$semana_gestacion), max(muestra_sistematica$semana_gestacion),
-         length = length(muestra_sistematica$semana_gestacion))
-
-f <- dnorm(x, mean = mean(muestra_sistematica$semana_gestacion), sd = sd(muestra_sistematica$semana_gestacion))
-lines(x, f, col = "red", lwd = 2)
+# x <- seq(min(muestra_sistematica$semana_gestacion), max(muestra_sistematica$semana_gestacion),
+#          length = length(muestra_sistematica$semana_gestacion))
+#
+# f <- dnorm(x, mean = mean(muestra_sistematica$semana_gestacion), sd = sd(muestra_sistematica$semana_gestacion))
+# lines(x, f, col = "red", lwd = 2)
 # --------------------------------------- medidas tendencia central --------------------------------------------------
