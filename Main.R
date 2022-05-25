@@ -47,10 +47,8 @@ paste("La moda de la variable semanas de gestación  es", moda)
 # --------------------------------------- medidas tendencia central --------------------------------------------------
 
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
-peso = muestra_sistematica$peso_nac
-edad = muestra_sistematica$madre_edad
-gestacion = muestra_sistematica$semana_gestacion
-valores_de_estudio = list(peso,edad,gestacion)
+valores_de_estudio <- list(muestra_sistematica$peso_nac,muestra_sistematica$madre_edad,
+                          muestra_sistematica$semana_gestacion,muestra_sistematica$talla_nac)
 
 loop <- function (lista,funcion){
   n = 1
@@ -99,7 +97,7 @@ rangos <- c(ra_peso,ra_edad,ra_gestacion)
 
 # -- valores de dispersion
 valores_dispersion <- data.frame( unlist(varianza),unlist(desviacion),asimetria,curtosis,rangos,
-                                  row.names = c("peso","edad","gestacion"))
+                                  row.names = c("peso","edad","gestacion","talla"))
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
 
 # --------------------------------------- graficas --------------------------------------------------------------------
