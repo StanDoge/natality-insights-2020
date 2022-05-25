@@ -1,7 +1,7 @@
 library("readxl")
 library(moments)
 
-datos = read_excel('./DB nacimientos 2020.xlsx')
+datos<-read_excel('./DB nacimientos 2020.xlsx')
 
 # --------------------------------------- muestra sistematica --------------------------------------------------------
 poblacion <- nrow(datos)
@@ -53,36 +53,36 @@ valores_de_estudio <- list(muestra_sistematica$peso_nac,muestra_sistematica$madr
 # -- funcion loop; dado un arreglo y una aplica esa funcion a cada uno de los elementos del arreglo y devuelve uno
 #    nuevo con los elementos pasados por la funcion ~ simil a un forEach.
 loop <- function (lista,funcion){
-  n = 1
-  salida = list()
+  n<-1
+  salida<-list()
   for (i in lista){
-    salida[[n]] = funcion(i)
-    n = n + 1
+    salida[[n]]<-funcion(i)
+    n<-n + 1
 }
   return(salida)
 }
 
 # -- varianza
-varianza = list()
+varianza<-list()
 
-varianza = loop(lista=valores_de_estudio,funcion=var)
+varianza<-loop(lista=valores_de_estudio,funcion=var)
 
 # -- desviacion estandar
-desviacion = list()
+desviacion<-list()
 
-desviacion = loop(varianza,funcion=sqrt)
+desviacion<-loop(varianza,funcion=sqrt)
 
 # -- coeficiente de variación
 CV<-function(x){sd(muestra_sistematica$semana_gestacion)*100/mean(muestra_sistematica$semana_gestacion)}
 CV(x)
 
 # -- asimetria
-asimetria = list()
-asimetria = loop(valores_de_estudio,skewness)
+asimetria<-list()
+asimetria<-loop(valores_de_estudio,skewness)
 
 # -- curtosis
-curtosis = list()
-curtosis = loop(valores_de_estudio,kurtosis)
+curtosis<-list()
+curtosis<-loop(valores_de_estudio,kurtosis)
 
 # -- rango
 ra_peso <- max(muestra_sistematica$peso_nac) - min(muestra_sistematica$peso_nac)
@@ -94,7 +94,7 @@ rangos <- c(ra_peso,ra_edad,ra_gestacion,ra_talla)
 
 # -- df de valores de dispersion
 valores_dispersion <- data.frame( unlist(varianza),unlist(desviacion),unlist(asimetria),unlist(curtosis),
-                                  rangos,row.names = c("peso","edad","gestacion","talla"))
+                                  rangos,row.names=c("peso","edad","gestacion","talla"))
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
 
 # --------------------------------------- graficas --------------------------------------------------------------------
@@ -105,8 +105,8 @@ valores_dispersion <- data.frame( unlist(varianza),unlist(desviacion),unlist(asi
 
 # todo: Dar nombres mas descriptivos para que todos entendamos cual es su finalidad
 # x <- seq(min(muestra_sistematica$semana_gestacion), max(muestra_sistematica$semana_gestacion),
-#          length = length(muestra_sistematica$semana_gestacion))
+#          length<-length(muestra_sistematica$semana_gestacion))
 #
-# f <- dnorm(x, mean = mean(muestra_sistematica$semana_gestacion), sd = sd(muestra_sistematica$semana_gestacion))
-# lines(x, f, col = "red", lwd = 2)
+# f <- dnorm(x, mean<-mean(muestra_sistematica$semana_gestacion), sd = sd(muestra_sistematica$semana_gestacion))
+# lines(x, f, col<-"red", lwd = 2)
 # --------------------------------------- medidas tendencia central --------------------------------------------------
