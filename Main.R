@@ -52,30 +52,25 @@ edad = muestra_sistematica$madre_edad
 gestacion = muestra_sistematica$semana_gestacion
 valores_de_estudio = list(peso,edad,gestacion)
 
-loop <- function (lista,salida,funcion){
+loop <- function (lista,funcion){
   n = 1
+  salida = list()
   for (i in lista){
     salida[[n]] = funcion(i)
     n = n + 1
-}}
+}
+  return(salida)
+}
 
 # -- varianza
 varianza = list()
-n = 1
 
-for (i in valores_de_estudio){
-  varianza[[n]] = var(i)
-  n = n + 1
-}
+varianza = loop(lista=valores_de_estudio,funcion=var)
 
 # -- desviacion estandar
 desviacion = list()
-h = 1
 
-for (i in varianza){
-  desviacion[[h]] = sqrt(i)
-  h = h + 1
-}
+desviacion = loop(varianza,funcion=sqrt)
 
 # -- coeficiente de variación
 CV<-function(x){sd(muestra_sistematica$semana_gestacion)*100/mean(muestra_sistematica$semana_gestacion)}
