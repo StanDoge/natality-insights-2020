@@ -4,20 +4,7 @@ library(moments)
 datos<-read_excel('./DB nacimientos 2020.xlsx')
 
 # --------------------------------------- muestra sistematica --------------------------------------------------------
-poblacion <- nrow(datos)
-n_muestra <- poblacion * 0.1
-
-# Funcion para obtener indices de valores de manera sistematica
-muestra.sistematica <- function(N,n){
-  k <- ceiling(N/n) # intervalo para tomar valores
-
-  r <- sample(1:k, 1) # conteo para hacer el "slide"
-
-  sys.samp <- seq(r, r + k*(n-1), k) # obtencion de indice de muestras
-}
-
-muestra_sistematica <- datos[muestra.sistematica(poblacion,n_muestra),]
-
+muestra_sistematica <- read_excel('/muestra_sistematica.xlsx')
 # --------------------------------------- muestra sistematica --------------------------------------------------------
 
 # --------------------------------------- medidas tendencia central --------------------------------------------------
