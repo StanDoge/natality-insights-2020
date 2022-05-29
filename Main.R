@@ -1,10 +1,10 @@
 library("readxl")
 library(moments)
 
-datos<-read_excel('./DB nacimientos 2020.xlsx')
+# datos<-read_excel('./DB nacimientos 2020.xlsx')
 
 # --------------------------------------- muestra sistematica --------------------------------------------------------
-muestra_sistematica <- read_excel('/muestra_sistematica.xlsx')
+muestra_sistematica <- read_excel('./muestra_sistematica.xlsx')
 # --------------------------------------- muestra sistematica --------------------------------------------------------
 
 # --------------------------------------- medidas tendencia central --------------------------------------------------
