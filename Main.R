@@ -21,6 +21,7 @@ muestra_sistematica <- datos[muestra.sistematica(poblacion,n_muestra),]
 # --------------------------------------- muestra sistematica --------------------------------------------------------
 
 
+table(local_parto&muestra_sistematica)
 
 
 
@@ -90,9 +91,36 @@ std_gestacion <- sqrt(var_gestacion)
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
 
 
+
+
+
+
 # --------------------------------------- graficas --------------------------------------------------------------------
 
 
-
 # --------------------------------------- graficas---------------------------------------------------------------------
+
+#----------------------------------------Distribuciones frecuentistas--------------------------------------------------
+
+muestra_sistematica$local_parto
+
+
+tabla_local_parto<- as.data.frame(table(local_parto=muestra_sistematica$local_parto))
+
+
+tabla_local_parto
+
+transform(tabla_local_parto,
+          
+          FreqAc=cumsum(Freq),
+          
+          Rel = round(prop.table(Freq), 2),
+          
+          RelAc= round(cumsum(prop.table(Freq)), 2)
+          
+)
+
+
+
+
 
