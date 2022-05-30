@@ -107,6 +107,19 @@ valores_dispersion <- data.frame( unlist(varianza),unlist(desviacion),unlist(asi
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
 
 # --------------------------------------- graficas --------------------------------------------------------------------
+hist(muestra_sistematica$peso_nac, main="Distribucion de los pesos de los recien nacidos", xlab="Kilogramos"
+,ylab="Conteo",breaks = 20)
+
+
+hist(muestra_sistematica$madre_edad, main="Distribucion de la edad de las madres de los recien nacidos", xlab="Edades"
+  ,ylab="Conteo",breaks = 20)
+
+hist(muestra_sistematica$semana_gestacion, main="Distribucion de las semanas de gesticion para los recien nacidos"
+  , xlab="Semanas" ,ylab="Conteo",breaks = 20)
+
+hist(muestra_sistematica$talla_nac, main="Distribucion de tallas en los recien nacidos", xlab="Tallas en cm"
+  ,ylab="Conteo",breaks = 20)
+
 # hist(muestra_sistematica$semana_gestacion)
 
 # hist(muestra_sistematica$semana_gestacion, main="Histograma de las semanas de gestacion", xlab="Semanas",
