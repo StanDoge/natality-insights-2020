@@ -1,5 +1,7 @@
 library("readxl")
 library(moments)
+install.packages("psych")
+library(psych)
 
 # datos<-read_excel('./DB nacimientos 2020.xlsx')
 
@@ -10,7 +12,10 @@ muestra_sistematica <- read_excel('./muestra_sistematica.xlsx')
 # --------------------------------------- medidas tendencia central --------------------------------------------------
 #Medidas de posición      peso_nac
 #1 Qu. media 3Qu. Mediana 
-summary(muestra_sistematica$peso_nac )
+summary(muestra_sistematica$peso_nac)
+geometric.mean(muestra_sistematica$peso_nac)
+armonic<-1/mean(1/muestra_sistematica$peso_nac)
+armonic
 #moda
 frecuencias <- data.frame(table(muestra_sistematica$peso_nac))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
@@ -19,6 +24,9 @@ paste("La moda de la variable peso es", moda)
 #Medidas de posición    madre_edad
 #1 Qu. media 3Qu. Mediana 
 summary(muestra_sistematica$madre_edad)
+geometric.mean(muestra_sistematica$madre_edad)
+armonic<-1/mean(1/muestra_sistematica$madre_edad)
+armonic
 #moda
 frecuencias <- data.frame(table(muestra_sistematica$madre_edad))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
@@ -27,6 +35,9 @@ paste("La moda de la variable edad de madre  es", moda)
 #Medidas de posición    semanas_gestacion
 #1 Qu. media 3Qu. Mediana 
 summary(muestra_sistematica$semana_gestacion)
+geometric.mean(muestra_sistematica$semana_gestacion)
+armonic<-1/mean(1/muestra_sistematica$semana_gestacion)
+armonic
 #moda
 frecuencias <- data.frame(table(muestra_sistematica$semana_gestacion))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
@@ -35,6 +46,9 @@ paste("La moda de la variable semanas de gestación  es", moda)
 #Medidas de posición    talla_nac
 #1 Qu. media 3Qu. Mediana 
 summary(muestra_sistematica$talla_nac)
+geometric.mean(muestra_sistematica$talla_nac)
+armonic<-1/mean(1/muestra_sistematica$talla_nac)
+armonic
 #moda
 frecuencias <- data.frame(table(muestra_sistematica$talla_nac))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
