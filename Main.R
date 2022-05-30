@@ -38,6 +38,7 @@ summary(muestra_sistematica$semana_gestacion)
 geometric.mean(muestra_sistematica$semana_gestacion)
 armonic<-1/mean(1/muestra_sistematica$semana_gestacion)
 armonic
+
 #moda
 frecuencias <- data.frame(table(muestra_sistematica$semana_gestacion))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
@@ -119,6 +120,11 @@ hist(muestra_sistematica$semana_gestacion, main="Distribucion de las semanas de 
 
 hist(muestra_sistematica$talla_nac, main="Distribucion de tallas en los recien nacidos", xlab="Tallas en cm"
   ,ylab="Conteo",breaks = 20)
+#-----------------------------------------------------------------------------------------------------------------
+boxplot(muestra_sistematica$peso_nac, main="Peso de recien nacido")
+boxplot(muestra_sistematica$madre_edad, main="Edad de la madre del recien nacido")
+boxplot(muestra_sistematica$semana_gestacion, main="Semanas de embarazo de la madre del recien nacido ")
+boxplot(muestra_sistematica$talla_nac, main="Talla del recien nacido en cm")
 
 # hist(muestra_sistematica$semana_gestacion)
 
