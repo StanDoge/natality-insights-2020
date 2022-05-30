@@ -85,6 +85,11 @@ valores_dispersion <- data.frame( unlist(varianza),unlist(desviacion),unlist(asi
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
 
 # --------------------------------------- graficas --------------------------------------------------------------------
+hist(muestra_sistematica$peso_nac)
+hist(muestra_sistematica$madre_edad)
+hist(muestra_sistematica$semana_gestacion)
+hist(muestra_sistematica$talla_nac)
+
 # hist(muestra_sistematica$semana_gestacion)
 
 # hist(muestra_sistematica$semana_gestacion, main="Histograma de las semanas de gestacion", xlab="Semanas",
