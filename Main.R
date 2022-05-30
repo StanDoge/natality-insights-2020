@@ -31,6 +31,14 @@ summary(muestra_sistematica$semana_gestacion)
 frecuencias <- data.frame(table(muestra_sistematica$semana_gestacion))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
 paste("La moda de la variable semanas de gestación  es", moda)
+
+#Medidas de posición    talla_nac
+#1 Qu. media 3Qu. Mediana 
+summary(muestra_sistematica$talla_nac)
+#moda
+frecuencias <- data.frame(table(muestra_sistematica$talla_nac))
+moda <- frecuencias[which.max(frecuencias$Freq),1]
+paste("La moda de la variable talla de nacimiento  es", moda)
 # --------------------------------------- medidas tendencia central --------------------------------------------------
 
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
