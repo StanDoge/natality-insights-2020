@@ -120,16 +120,30 @@ hist(muestra_sistematica$semana_gestacion, main="Distribucion de las semanas de 
 
 hist(muestra_sistematica$talla_nac, main="Distribucion de tallas en los recien nacidos", xlab="Tallas en cm"
   ,ylab="Conteo",breaks = 20)
-#-----------------------------------------------------------------------------------------------------------------
+
 boxplot(muestra_sistematica$peso_nac, main="Peso de recien nacido")
 boxplot(muestra_sistematica$madre_edad, main="Edad de la madre del recien nacido")
 boxplot(muestra_sistematica$semana_gestacion, main="Semanas de embarazo de la madre del recien nacido ")
 boxplot(muestra_sistematica$talla_nac, main="Talla del recien nacido en cm")
 
+
+#--------------------------------------Distribuciones conjuntas de probabilidad-------------------------------------------------------------------
+
+# local_parto vs sex_nac
+sapply(split(x=muestra_sistematica$sex_nac,  f=muestra_sistematica$local_parto), summary)
+sapply(split(x=muestra_sistematica$local_parto, f=muestra_sistematica$sex_nac), summary)
+
+
+x=muestra_sistematica$sex_nac
+f=muestra_sistematica$local_parto
+sapply(split(x, f), summary)
+
+# -------------------------------------Distribuciones conjuntas de probabilidad-----------------------------------------------
+
 # hist(muestra_sistematica$semana_gestacion)
 
 # hist(muestra_sistematica$semana_gestacion, main="Histograma de las semanas de gestacion", xlab="Semanas",
-     # ylab ="Frecuencia", freq=F)
+# ylab ="Frecuencia", freq=F)
 
 # todo: Dar nombres mas descriptivos para que todos entendamos cual es su finalidad
 # x <- seq(min(muestra_sistematica$semana_gestacion), max(muestra_sistematica$semana_gestacion),
@@ -137,4 +151,4 @@ boxplot(muestra_sistematica$talla_nac, main="Talla del recien nacido en cm")
 #
 # f <- dnorm(x, mean<-mean(muestra_sistematica$semana_gestacion), sd = sd(muestra_sistematica$semana_gestacion))
 # lines(x, f, col<-"red", lwd = 2)
-# --------------------------------------- medidas tendencia central --------------------------------------------------
+
