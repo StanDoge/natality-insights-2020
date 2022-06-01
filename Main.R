@@ -129,14 +129,21 @@ boxplot(muestra_sistematica$talla_nac, main="Talla del recien nacido en cm")
 
 #--------------------------------------Distribuciones conjuntas de probabilidad-------------------------------------------------------------------
 
-# local_parto vs sex_nac
-sapply(split(x=muestra_sistematica$sex_nac,  f=muestra_sistematica$local_parto), summary)
-sapply(split(x=muestra_sistematica$local_parto, f=muestra_sistematica$sex_nac), summary)
+# local_parto
+table(muestra_sistematica$local_parto,muestra_sistematica$sex_nac)
+table(muestra_sistematica$local_parto,muestra_sistematica$tipo_parto)
+table(muestra_sistematica$local_parto,muestra_sistematica$clase_parto)
 
+#madre_dept
+table(muestra_sistematica$madre_dept,muestra_sistematica$sex_nac)
+table(muestra_sistematica$madre_dept,muestra_sistematica$madre_area)
 
-x=muestra_sistematica$sex_nac
-f=muestra_sistematica$local_parto
-sapply(split(x, f), summary)
+#tipo_parto
+table(muestra_sistematica$tipo_parto,muestra_sistematica$sex_nac)
+
+#clase_parto
+table(muestra_sistematica$clase_parto,muestra_sistematica$sex_nac)
+
 
 # -------------------------------------Distribuciones conjuntas de probabilidad-----------------------------------------------
 
