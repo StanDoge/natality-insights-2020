@@ -88,7 +88,6 @@ valores_dispersion <- data.frame( unlist(varianza),unlist(desviacion),unlist(asi
 hist(muestra_sistematica$peso_nac, main="Distribucion de los pesos de los recien nacidos", xlab="Kilogramos"
 ,ylab="Conteo",breaks = 20)
 
-
 hist(muestra_sistematica$madre_edad, main="Distribucion de la edad de las madres de los recien nacidos", xlab="Edades"
   ,ylab="Conteo",breaks = 20)
 
@@ -98,17 +97,6 @@ hist(muestra_sistematica$semana_gestacion, main="Distribucion de las semanas de 
 hist(muestra_sistematica$talla_nac, main="Distribucion de tallas en los recien nacidos", xlab="Tallas en cm"
   ,ylab="Conteo",breaks = 20)
 
-# hist(muestra_sistematica$semana_gestacion)
-
-# hist(muestra_sistematica$semana_gestacion, main="Histograma de las semanas de gestacion", xlab="Semanas",
-     # ylab ="Frecuencia", freq=F)
-
-# todo: Dar nombres mas descriptivos para que todos entendamos cual es su finalidad
-# x <- seq(min(muestra_sistematica$semana_gestacion), max(muestra_sistematica$semana_gestacion),
-#          length<-length(muestra_sistematica$semana_gestacion))
-#
-# f <- dnorm(x, mean<-mean(muestra_sistematica$semana_gestacion), sd = sd(muestra_sistematica$semana_gestacion))
-# lines(x, f, col<-"red", lwd = 2)
 # --------------------------------------- medidas tendencia central --------------------------------------------------
 
 # --------------------------------------- intervalos de confianza ---------------------------------------------------
