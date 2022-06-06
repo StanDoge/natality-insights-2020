@@ -110,3 +110,17 @@ hist(muestra_sistematica$talla_nac, main="Distribucion de tallas en los recien n
 # f <- dnorm(x, mean<-mean(muestra_sistematica$semana_gestacion), sd = sd(muestra_sistematica$semana_gestacion))
 # lines(x, f, col<-"red", lwd = 2)
 # --------------------------------------- medidas tendencia central --------------------------------------------------
+
+# --------------------------------------- intervalos de confianza ---------------------------------------------------
+madres <- muestra_sistematica$madre_edad
+t.test(madres,conf.level = 0.95)
+
+semanas <- muestra_sistematica$semana_gestacion
+t.test(semanas,conf.level = 0.95)
+
+peso <- muestra_sistematica$peso_nac
+t.test(peso,conf.level = 0.95)
+
+talla <- muestra_sistematica$talla_nac
+t.test(talla,conf.level = 0.95)
+# --------------------------------------- intervalos de confianza ---------------------------------------------------
