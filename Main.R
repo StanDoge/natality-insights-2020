@@ -147,15 +147,12 @@ table(muestra_sistematica$clase_parto,muestra_sistematica$sex_nac)
 
 # -------------------------------------Distribuciones conjuntas de probabilidad-----------------------------------------------
 
-# hist(muestra_sistematica$semana_gestacion)
+# -------------------------------------Inferencia sobre medias de dos muestras-----------------------------------------------
+table(muestra_sistematica$sex_nac)
+mean((x))
 
-# hist(muestra_sistematica$semana_gestacion, main="Histograma de las semanas de gestacion", xlab="Semanas",
-# ylab ="Frecuencia", freq=F)
 
-# todo: Dar nombres mas descriptivos para que todos entendamos cual es su finalidad
-# x <- seq(min(muestra_sistematica$semana_gestacion), max(muestra_sistematica$semana_gestacion),
-#          length<-length(muestra_sistematica$semana_gestacion))
-#
-# f <- dnorm(x, mean<-mean(muestra_sistematica$semana_gestacion), sd = sd(muestra_sistematica$semana_gestacion))
-# lines(x, f, col<-"red", lwd = 2)
+
+# -------------------------------------Inferencia sobre medias de dos muestras-----------------------------------------------
+
 
