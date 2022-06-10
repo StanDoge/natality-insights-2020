@@ -152,25 +152,21 @@ table(muestra_sistematica$sex_nac)
 mean((x))
 
 
-
-# -------------------------------------Inferencia sobre medias de dos muestras-----------------------------------------------
-
-N=83160 #población
-n=8316  #muestra
-
 # Creamos un objeto  "gest" que contiene los grupos separados por sexo del recien nacido
 gest <- split(muestra_sistematica$peso_nac, muestra_sistematica$sex_nac)
 # calculamos las medias muestrales
 m_f = mean(gest$Femenino)
 m_m = mean(gest$Masculino)
-# Calculamos las desviaciones muestrales
-s_f = var(gest$Femenino)
-s_m = var(gest$Masculino)
+# Calculamos la varianza muestral
+v_f = var(gest$Femenino)
+v_m = var(gest$Masculino)
 # Calculamos los tamaños de muestra
 n_f=length(gest$Femenino)
 n_m=length(gest$Masculino)
-# H0: la medias son iguales ???
+
+# H0: la medias son iguales 
 # H1: la medias NO son iguales
+
 # Parámentro estimado
 P = m_f - m_m
 # t-student, p-value test 2 colas
@@ -179,9 +175,9 @@ a=0.05
 #Calcular p-value
 gl=min(n_f - 1,n_m - 1)
 # margen de error
-SE= sqrt((s_f / n_f) + (s_m / n_m))
+SE= sqrt((v_f/ n_f) + (v_m / n_m))
 # Calculamos t
-tc = ((m_f - m_m) - 0) / SE
+tc = ((m_f - m_m)) / SE
 # p-value
 p_v = pt(q = -tc, df = gl) + (1 - pt(q = tc, df = gl))
 p_v
@@ -189,6 +185,22 @@ a
 
 #p-value es mayor al 0.05, se acepta H0
 
+
+
+t.test(
+  x           = gest$Femenino,
+  y           = gest$Masculino,
+  alternative = "two.sided",
+  mu          = 0,
+  var.equal   = TRUE,
+  conf.level  = 0.95
+)
+tc
+p_v
+
+
+
+# -------------------------------------Inferencia sobre medias de dos muestras-----------------------------------------------
 
 # --------------------------------------- medidas tendencia central --------------------------------------------------
 
