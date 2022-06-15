@@ -1,8 +1,6 @@
 library("readxl")
 library(moments)
 
-# datos<-read_excel('./DB nacimientos 2020.xlsx')
-
 # --------------------------------------- muestra sistematica --------------------------------------------------------
 muestra_sistematica <- read_excel('./muestra_sistematica.xlsx')
 # --------------------------------------- muestra sistematica --------------------------------------------------------
@@ -112,3 +110,8 @@ t.test(peso,conf.level = 0.95)
 talla <- muestra_sistematica$talla_nac
 t.test(talla,conf.level = 0.95)
 # --------------------------------------- intervalos de confianza ---------------------------------------------------
+
+# --------------------------------------- probabilidades ---------------------------------------------------
+
+
+# --------------------------------------- probabilidades ---------------------------------------------------
