@@ -120,3 +120,6 @@ s_normalizacion = function (x){
 variables_estudio_norm = data.frame(lapply(valores_de_estudio,s_normalizacion))[0:4]
 variables_estudio_norm = setNames(variables_estudio_norm, c('Peso','Edad','Semanas','Talla'))
 # --------------------------------------- probabilidades ---------------------------------------------------
+
+# --------------------------------------- ajuste de bondad ---------------------------------------------------
+# --------------------------------------- ajuste de bondad ---------------------------------------------------
