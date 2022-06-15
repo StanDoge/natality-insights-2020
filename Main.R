@@ -95,8 +95,6 @@ hist(muestra_sistematica$semana_gestacion, main="Distribucion de las semanas de 
 hist(muestra_sistematica$talla_nac, main="Distribucion de tallas en los recien nacidos", xlab="Tallas en cm"
   ,ylab="Conteo",breaks = 20)
 
-# --------------------------------------- medidas tendencia central --------------------------------------------------
-
 # --------------------------------------- intervalos de confianza ---------------------------------------------------
 madres <- muestra_sistematica$madre_edad
 t.test(madres,conf.level = 0.95)
@@ -113,10 +111,12 @@ t.test(talla,conf.level = 0.95)
 
 # --------------------------------------- probabilidades ---------------------------------------------------
 
+#-- simple featuring scaling
 s_normalizacion = function (x){
     return (x/max(x))
 }
 
+#-- normalizando datos
 variables_estudio_norm = data.frame(lapply(valores_de_estudio,s_normalizacion))[0:4]
 variables_estudio_norm = setNames(variables_estudio_norm, c('Peso','Edad','Semanas','Talla'))
 # --------------------------------------- probabilidades ---------------------------------------------------
