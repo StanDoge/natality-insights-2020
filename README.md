@@ -12,3 +12,4 @@ Here are eight categorical variables, seven numerical variables where three of t
 
 ## About the repo:
 This was a college team homework for Statistic & Probability signature. Incluides from descriptive statistic, probability distribution to inference statistic.
+Enjoy ~ 🎍
