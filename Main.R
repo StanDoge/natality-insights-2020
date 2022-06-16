@@ -1,8 +1,6 @@
 library("readxl")
 library(moments)
 
-# datos<-read_excel('./DB nacimientos 2020.xlsx')
-
 # --------------------------------------- muestra sistematica --------------------------------------------------------
 muestra_sistematica <- read_excel('./muestra_sistematica.xlsx')
 # --------------------------------------- muestra sistematica --------------------------------------------------------
@@ -85,15 +83,43 @@ valores_dispersion <- data.frame( unlist(varianza),unlist(desviacion),unlist(asi
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
 
 # --------------------------------------- graficas --------------------------------------------------------------------
-# hist(muestra_sistematica$semana_gestacion)
+hist(muestra_sistematica$peso_nac, main="Distribucion de los pesos de los recien nacidos", xlab="Kilogramos"
+,ylab="Conteo",breaks = 20)
 
-# hist(muestra_sistematica$semana_gestacion, main="Histograma de las semanas de gestacion", xlab="Semanas",
-     # ylab ="Frecuencia", freq=F)
+hist(muestra_sistematica$madre_edad, main="Distribucion de la edad de las madres de los recien nacidos", xlab="Edades"
+  ,ylab="Conteo",breaks = 20)
 
-# todo: Dar nombres mas descriptivos para que todos entendamos cual es su finalidad
-# x <- seq(min(muestra_sistematica$semana_gestacion), max(muestra_sistematica$semana_gestacion),
-#          length<-length(muestra_sistematica$semana_gestacion))
-#
-# f <- dnorm(x, mean<-mean(muestra_sistematica$semana_gestacion), sd = sd(muestra_sistematica$semana_gestacion))
-# lines(x, f, col<-"red", lwd = 2)
-# --------------------------------------- medidas tendencia central --------------------------------------------------
+hist(muestra_sistematica$semana_gestacion, main="Distribucion de las semanas de gesticion para los recien nacidos"
+  , xlab="Semanas" ,ylab="Conteo",breaks = 20)
+
+hist(muestra_sistematica$talla_nac, main="Distribucion de tallas en los recien nacidos", xlab="Tallas en cm"
+  ,ylab="Conteo",breaks = 20)
+
+# --------------------------------------- intervalos de confianza ---------------------------------------------------
+madres <- muestra_sistematica$madre_edad
+t.test(madres,conf.level = 0.95)
+
+semanas <- muestra_sistematica$semana_gestacion
+t.test(semanas,conf.level = 0.95)
+
+peso <- muestra_sistematica$peso_nac
+t.test(peso,conf.level = 0.95)
+
+talla <- muestra_sistematica$talla_nac
+t.test(talla,conf.level = 0.95)
+# --------------------------------------- intervalos de confianza ---------------------------------------------------
+
+# --------------------------------------- probabilidades ---------------------------------------------------
+
+#-- simple featuring scaling
+s_normalizacion = function (x){
+    return (x/max(x))
+}
+
+#-- normalizando datos
+variables_estudio_norm = data.frame(lapply(valores_de_estudio,s_normalizacion))[0:4]
+variables_estudio_norm = setNames(variables_estudio_norm, c('Peso','Edad','Semanas','Talla'))
+# --------------------------------------- probabilidades ---------------------------------------------------
+
+# --------------------------------------- ajuste de bondad ---------------------------------------------------
+# --------------------------------------- ajuste de bondad ---------------------------------------------------
