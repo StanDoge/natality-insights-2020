@@ -8,7 +8,7 @@ Here are eight categorical variables, seven numerical variables where three of t
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Identifier | Systematic sample | Expansion factor | Place of birth | Birth month | Birth department | Born's sex | Born's weight | Born's size | Birth kind | Mother's age | Gestation week | Mother's department | Mother's residence | Birth type |
 
-## Clarifications: 
+## Comments: 
 
 ## About the repo:
 This was a college team homework for Statistic & Probability signature. Incluides from descriptive statistic, probability distribution to inference statistic.
