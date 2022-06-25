@@ -7,6 +7,7 @@ Here are eight categorical variables, seven numerical variables where three of t
 | id | muestra | fex | local_parto | mes_nac | dep_nac | sex_nac | peso_nac | talla_nac | clase_parto | madre_edad | semana_gestacion | madre_dept | madre_area | tipo_parto |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Identifier - integer | Systematic sample - integer | Expansion factor - integer | Place of birth - hospital | Birth month - month | Birth department - Salvador's department | Born's sex - sex | Born's weight - pounds | Born's size - centimeters | Birth kind  | Mother's age - years | Gestation week - weeks | Mother's department - Salvador's department | Mother's residence - Rural/Urban | Birth type |
+| Integer | Integer | Integer | Hospital | Month | Salvador's department | Sex | # | Cm | | Years | Weeks | Salvador's department | Rural/Urban | | 
 
 ## About the repo:
 This was a college team homework for Statistic & Probability signature. Incluides from descriptive statistic, probability distribution to inference statistic.
