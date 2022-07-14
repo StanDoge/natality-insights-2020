@@ -6,24 +6,22 @@ muestra_sistematica <- read_excel('./muestra_sistematica.xlsx')
 # --------------------------------------- muestra sistematica --------------------------------------------------------
 
 # --------------------------------------- medidas tendencia central --------------------------------------------------
-#Medidas de posición      peso_nac
-#1 Qu. media 3Qu. Mediana 
+
+#1 Qu. media 3Qu. Mediana
 summary(muestra_sistematica$peso_nac )
 #moda
 frecuencias <- data.frame(table(muestra_sistematica$peso_nac))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
 paste("La moda de la variable peso es", moda)
 
-#Medidas de posición    madre_edad
-#1 Qu. media 3Qu. Mediana 
+#1 Qu. media 3Qu. Mediana
 summary(muestra_sistematica$madre_edad)
 #moda
 frecuencias <- data.frame(table(muestra_sistematica$madre_edad))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
 paste("La moda de la variable edad de madre  es", moda)
 
-#Medidas de posición    semanas_gestacion
-#1 Qu. media 3Qu. Mediana 
+#1 Qu. media 3Qu. Mediana
 summary(muestra_sistematica$semana_gestacion)
 #moda
 frecuencias <- data.frame(table(muestra_sistematica$semana_gestacion))
@@ -120,6 +118,3 @@ s_normalizacion = function (x){
 variables_estudio_norm = data.frame(lapply(valores_de_estudio,s_normalizacion))[0:4]
 variables_estudio_norm = setNames(variables_estudio_norm, c('Peso','Edad','Semanas','Talla'))
 # --------------------------------------- probabilidades ---------------------------------------------------
-
-# --------------------------------------- ajuste de bondad ---------------------------------------------------
-# --------------------------------------- ajuste de bondad ---------------------------------------------------
