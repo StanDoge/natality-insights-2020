@@ -8,20 +8,19 @@ muestra_sistematica <- read_excel('./muestra_sistematica.xlsx')
 
 #1 Qu. media 3Qu. Mediana
 summary(muestra_sistematica$peso_nac )
-#moda
+summary(muestra_sistematica$madre_edad)
+summary(muestra_sistematica$semana_gestacion)
+
+# -- moda
 frecuencias <- data.frame(table(muestra_sistematica$peso_nac))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
 paste("La moda de la variable peso es", moda)
 
-#1 Qu. media 3Qu. Mediana
-summary(muestra_sistematica$madre_edad)
 #moda
 frecuencias <- data.frame(table(muestra_sistematica$madre_edad))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
 paste("La moda de la variable edad de madre  es", moda)
 
-#1 Qu. media 3Qu. Mediana
-summary(muestra_sistematica$semana_gestacion)
 #moda
 frecuencias <- data.frame(table(muestra_sistematica$semana_gestacion))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
