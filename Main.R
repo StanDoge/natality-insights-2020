@@ -6,7 +6,7 @@ muestra_sistematica <- read_excel('./muestra_sistematica.xlsx')
 
 # --------------------------------------- Medidas Tendencia Central --------------------------------------------------
 
-#1 Qu. media 3Qu. Mediana
+# -- summries
 summary(muestra_sistematica$peso_nac )
 summary(muestra_sistematica$madre_edad)
 summary(muestra_sistematica$semana_gestacion)
@@ -14,17 +14,14 @@ summary(muestra_sistematica$semana_gestacion)
 # -- moda
 frecuencias <- data.frame(table(muestra_sistematica$peso_nac))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
-paste("La moda de la variable peso es", moda)
 
 #moda
 frecuencias <- data.frame(table(muestra_sistematica$madre_edad))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
-paste("La moda de la variable edad de madre  es", moda)
 
 #moda
 frecuencias <- data.frame(table(muestra_sistematica$semana_gestacion))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
-paste("La moda de la variable semanas de gestación  es", moda)
 # --------------------------------------- medidas tendencia central --------------------------------------------------
 
 # --------------------------------------- Medidas Dispersion ---------------------------------------------------------
