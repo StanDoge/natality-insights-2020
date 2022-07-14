@@ -1,11 +1,10 @@
+# --------------------------------------- Base --------------------------------------------------------
 library("readxl")
 library(moments)
-
-# --------------------------------------- muestra sistematica --------------------------------------------------------
 muestra_sistematica <- read_excel('./muestra_sistematica.xlsx')
-# --------------------------------------- muestra sistematica --------------------------------------------------------
+# --------------------------------------- base --------------------------------------------------------
 
-# --------------------------------------- medidas tendencia central --------------------------------------------------
+# --------------------------------------- Medidas Tendencia Central --------------------------------------------------
 
 #1 Qu. media 3Qu. Mediana
 summary(muestra_sistematica$peso_nac )
@@ -29,7 +28,7 @@ moda <- frecuencias[which.max(frecuencias$Freq),1]
 paste("La moda de la variable semanas de gestación  es", moda)
 # --------------------------------------- medidas tendencia central --------------------------------------------------
 
-# --------------------------------------- medidas dispersion ---------------------------------------------------------
+# --------------------------------------- Medidas Dispersion ---------------------------------------------------------
 valores_de_estudio <- list(muestra_sistematica$peso_nac,muestra_sistematica$madre_edad,
                           muestra_sistematica$semana_gestacion,muestra_sistematica$talla_nac)
 
@@ -80,7 +79,7 @@ valores_dispersion <- data.frame( unlist(varianza),unlist(desviacion),unlist(asi
                                   rangos,row.names=c("peso","edad","gestacion","talla"))
 # --------------------------------------- medidas dispersion ---------------------------------------------------------
 
-# --------------------------------------- graficas --------------------------------------------------------------------
+# --------------------------------------- Graficas --------------------------------------------------------------------
 hist(muestra_sistematica$peso_nac, main="Distribucion de los pesos de los recien nacidos", xlab="Kilogramos"
 ,ylab="Conteo",breaks = 20)
 
@@ -92,8 +91,9 @@ hist(muestra_sistematica$semana_gestacion, main="Distribucion de las semanas de 
 
 hist(muestra_sistematica$talla_nac, main="Distribucion de tallas en los recien nacidos", xlab="Tallas en cm"
   ,ylab="Conteo",breaks = 20)
+# --------------------------------------- graficas --------------------------------------------------------------------
 
-# --------------------------------------- intervalos de confianza ---------------------------------------------------
+# --------------------------------------- Intervalos de confianza ---------------------------------------------------
 madres <- muestra_sistematica$madre_edad
 t.test(madres,conf.level = 0.95)
 
@@ -107,7 +107,7 @@ talla <- muestra_sistematica$talla_nac
 t.test(talla,conf.level = 0.95)
 # --------------------------------------- intervalos de confianza ---------------------------------------------------
 
-# --------------------------------------- probabilidades ---------------------------------------------------
+# --------------------------------------- Probabilidades ---------------------------------------------------
 
 #-- simple featuring scaling
 s_normalizacion = function (x){
