@@ -6,20 +6,18 @@ muestra_sistematica <- read_excel('./muestra_sistematica.xlsx')
 
 # --------------------------------------- Medidas Tendencia Central --------------------------------------------------
 
-# -- summries
+# -- summaries
 summary(muestra_sistematica$peso_nac )
 summary(muestra_sistematica$madre_edad)
 summary(muestra_sistematica$semana_gestacion)
 
-# -- moda
+# -- modes
 frecuencias <- data.frame(table(muestra_sistematica$peso_nac))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
 
-#moda
 frecuencias <- data.frame(table(muestra_sistematica$madre_edad))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
 
-#moda
 frecuencias <- data.frame(table(muestra_sistematica$semana_gestacion))
 moda <- frecuencias[which.max(frecuencias$Freq),1]
 # --------------------------------------- medidas tendencia central --------------------------------------------------
@@ -106,11 +104,11 @@ t.test(talla,conf.level = 0.95)
 # --------------------------------------- Probabilidades ---------------------------------------------------
 
 #-- simple featuring scaling
-s_normalizacion = function (x){
+s_normalizacion <- function (x){
     return (x/max(x))
 }
 
 #-- normalizando datos
-variables_estudio_norm = data.frame(lapply(valores_de_estudio,s_normalizacion))[0:4]
-variables_estudio_norm = setNames(variables_estudio_norm, c('Peso','Edad','Semanas','Talla'))
+variables_estudio_norm <- data.frame(lapply(valores_de_estudio,s_normalizacion))[0:4]
+variables_estudio_norm <- setNames(variables_estudio_norm, c('Peso','Edad','Semanas','Talla'))
 # --------------------------------------- probabilidades ---------------------------------------------------
