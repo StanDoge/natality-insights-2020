@@ -1,6 +1,6 @@
 # Natality insights in the middle of pandemic
 
-Using a database with more than 80,000 tuples, we generate a systematic sample to work on with a size of 10% of the total population. Was analyzed with R software but can be perfectly analyzed with Python, you can find the analysis with it [here](https://gitlab.com/StanDoge_/natality-insights-2020)
+Using a database with more than 80,000 tuples, we generate a systematic sample to work on with a size of 10% of the total population. Was analyzed with R software but can be perfectly analyzed with Python, you can find the analysis with it [here](https://www.kaggle.com/code/standoge/natality-in-pandemic-in-el-salvador)
 
 ## Data dict 📃
 Here are eight categorical variables, seven numerical variables where three of them aren't significant for analysis, only works as sample id or expansion factor. 
